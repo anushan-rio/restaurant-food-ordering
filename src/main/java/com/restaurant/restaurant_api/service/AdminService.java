@@ -1,4 +1,4 @@
-package com.restaurant.restaurant_api.service;
+	package com.restaurant.restaurant_api.service;
 
 import java.util.stream.Collectors;
 
@@ -7,7 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.restaurant.restaurant_api.dto.request.CreateManagerRequestDto;
+import com.restaurant.restaurant_api.dto.request.RestaurantsRequestDto;
 import com.restaurant.restaurant_api.dto.response.RegisterResponseDto;
+import com.restaurant.restaurant_api.model.Restaurants;
 import com.restaurant.restaurant_api.model.Role;
 import com.restaurant.restaurant_api.model.User;
 import com.restaurant.restaurant_api.repository.RoleRepository;
@@ -60,5 +62,8 @@ public class AdminService {
                 saved.getCreatedAt()
         );
     }
+    
+    
+    
 
 }

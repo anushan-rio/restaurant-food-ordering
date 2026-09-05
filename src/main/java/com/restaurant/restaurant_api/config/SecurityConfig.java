@@ -1,4 +1,4 @@
-	package com.restaurant.restaurant_api.config;
+package com.restaurant.restaurant_api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,6 +39,7 @@ public class SecurityConfig {
             	    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
             	    .requestMatchers("/error").permitAll()
             	    .requestMatchers("/api/admin/**").hasRole("ADMIN")
+            	    .requestMatchers("/api/restaurants/**").hasRole("ADMIN")
             	    .anyRequest().authenticated()
             	)
             .httpBasic(basic -> basic.disable())

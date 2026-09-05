@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.restaurant_api.dto.request.CreateManagerRequestDto;
+import com.restaurant.restaurant_api.dto.request.RestaurantsRequestDto;
 import com.restaurant.restaurant_api.dto.response.RegisterResponseDto;
+import com.restaurant.restaurant_api.dto.response.RestaurantsReponseDto;
 import com.restaurant.restaurant_api.payload.ApiResponseDto;
 import com.restaurant.restaurant_api.service.AdminService;
 
@@ -39,5 +41,9 @@ public class AdminController {
                     .body(ApiResponseDto.failure(ex.getMessage()));
         }
     }
+	
+	
+	
+	
 
 }
