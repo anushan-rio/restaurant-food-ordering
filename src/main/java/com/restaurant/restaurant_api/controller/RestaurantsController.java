@@ -67,7 +67,7 @@ public class RestaurantsController {
 	
 
 	@DeleteMapping("/restaurants/{id}")
-	public ResponseEntity<ApiResponseDto<RestaurantsReponseDto>> deleteRestaurant(@RequestParam Long id) {
+	public ResponseEntity<ApiResponseDto<RestaurantsReponseDto>> deleteRestaurant(@PathVariable Long id) {
 
 		try {
 	        restaurantsService.deleteRestaurant(id);

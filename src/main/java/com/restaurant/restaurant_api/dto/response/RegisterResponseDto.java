@@ -12,6 +12,8 @@ public class RegisterResponseDto {
     private String phone;
     private boolean active;
     private Set<String> roles;
+    private Long restaurantId;
+    private Long createdByUserId;
     private LocalDateTime createdAt;
 
     public RegisterResponseDto() {
@@ -19,6 +21,7 @@ public class RegisterResponseDto {
 
     public RegisterResponseDto(Long id, String firstName, String lastName, String email,
                                 String phone, boolean active, Set<String> roles,
+                                Long restaurantId, Long createdByUserId,
                                 LocalDateTime createdAt) {
         this.id = id;
         this.firstName = firstName;
@@ -27,10 +30,10 @@ public class RegisterResponseDto {
         this.phone = phone;
         this.active = active;
         this.roles = roles;
+        this.restaurantId = restaurantId;
+        this.createdByUserId = createdByUserId;
         this.createdAt = createdAt;
     }
-
-    // ---- Getters and Setters ----
 
     public Long getId() {
         return id;
@@ -86,6 +89,22 @@ public class RegisterResponseDto {
 
     public void setRoles(Set<String> roles) {
         this.roles = roles;
+    }
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public Long getCreatedByUserId() {
+        return createdByUserId;
+    }
+
+    public void setCreatedByUserId(Long createdByUserId) {
+        this.createdByUserId = createdByUserId;
     }
 
     public LocalDateTime getCreatedAt() {

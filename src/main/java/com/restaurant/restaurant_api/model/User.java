@@ -31,6 +31,12 @@ public class User {
     @Column(name = "is_active", nullable = false)
     private boolean active = true;
 
+    @Column(name = "restaurant_id")
+    private Long restaurantId;
+
+    @Column(name = "created_by_user_id")
+    private Long createdByUserId;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -55,8 +61,6 @@ public class User {
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
-    // ---- Getters and Setters ----
 
     public Long getId() {
         return id;
@@ -112,6 +116,22 @@ public class User {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public Long getCreatedByUserId() {
+        return createdByUserId;
+    }
+
+    public void setCreatedByUserId(Long createdByUserId) {
+        this.createdByUserId = createdByUserId;
     }
 
     public LocalDateTime getCreatedAt() {

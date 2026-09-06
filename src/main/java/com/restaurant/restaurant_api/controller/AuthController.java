@@ -29,7 +29,7 @@ public class AuthController {
             @Valid @RequestBody RegisterRequestDto request) {
 
         try {
-        	System.out.println("-----------"+request);
+        	
             RegisterResponseDto response = authService.register(request);
 
             return ResponseEntity

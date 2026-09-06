@@ -66,6 +66,8 @@ public class AuthService {
                 saved.getPhone(),
                 saved.isActive(),
                 saved.getRoles().stream().map(Role::getName).collect(Collectors.toSet()),
+                null,   // restaurantId — not applicable for a self-registered customer
+                null,   // createdByUserId — not applicable for a self-registered customer
                 saved.getCreatedAt()
         );
     }
