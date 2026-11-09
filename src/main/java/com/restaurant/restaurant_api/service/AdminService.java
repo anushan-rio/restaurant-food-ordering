@@ -1,6 +1,7 @@
 	package com.restaurant.restaurant_api.service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,5 +128,26 @@ public class AdminService {
 
         userRepository.deleteById(id);
     }
+    public RegisterResponseDto getUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
+        Set<String> roleNames = user.getRoles()
+                .stream()
+                .map(Role::getName)
+                .collect(Collectors.toSet());
+
+        return new RegisterResponseDto(
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getPhone(),
+                user.isActive(),
+                roleNames,
+                user.getRestaurantId(),
+                user.getCreatedByUserId(),
+                user.getCreatedAt()
+        );
+    }
 }

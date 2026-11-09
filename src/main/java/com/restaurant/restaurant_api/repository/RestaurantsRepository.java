@@ -1,7 +1,7 @@
 package com.restaurant.restaurant_api.repository;
 
 import java.util.List;
-
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.restaurant.restaurant_api.model.Restaurants;
@@ -9,4 +9,6 @@ import com.restaurant.restaurant_api.model.Restaurants;
 public interface RestaurantsRepository extends JpaRepository<Restaurants, Long> {
 	
 	List<Restaurants> findByUserId(Long userId);	
+	
+	Optional<Restaurants> findByIdAndUserId(Long id, Long userId);
 }

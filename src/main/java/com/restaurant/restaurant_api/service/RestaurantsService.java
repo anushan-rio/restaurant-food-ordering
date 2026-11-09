@@ -106,4 +106,21 @@ public class RestaurantsService {
 	            updated.getUpdatedAt()
 	    );
 	}
+	public RestaurantsReponseDto getRestaurantByIdAndUserId(Long id, Long userId) {
+	    Restaurants restaurant = restaurantRepository.findByIdAndUserId(id, userId)
+	            .orElseThrow(() -> new RuntimeException("Restaurant not found for this user"));
+
+	    return new RestaurantsReponseDto(
+	            restaurant.getId(),
+	            restaurant.getName(),
+	            restaurant.getDescription(),
+	            restaurant.getPhone(),
+	            restaurant.getEmail(),
+	            restaurant.getAddress(),
+	            restaurant.isActive(),
+	            restaurant.getUserId(),
+	            restaurant.getCreatedAt(),
+	            restaurant.getUpdatedAt()
+	    );
+	}	
 }

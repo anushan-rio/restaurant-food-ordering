@@ -99,5 +99,17 @@ public class RestaurantsController {
 	                .body(ApiResponseDto.failure(ex.getMessage()));
 	    }
 	}
+	@GetMapping("/restaurants/{id}")
+	public ResponseEntity<ApiResponseDto<RestaurantsReponseDto>> getRestaurantByIdAndUserId(
+	        @PathVariable Long id,
+	        @RequestParam Long userId) {
+	    try {
+	        RestaurantsReponseDto response = restaurantsService.getRestaurantByIdAndUserId(id, userId);
+	        return ResponseEntity.ok(ApiResponseDto.success("Restaurant fetched successfully", response));
+	    } catch (RuntimeException e) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                .body(ApiResponseDto.failure(e.getMessage()));
+	    }
+	}
 
 }

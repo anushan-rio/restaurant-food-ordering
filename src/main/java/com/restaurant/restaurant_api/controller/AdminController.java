@@ -107,4 +107,15 @@ public class AdminController {
 	}
 	
 
+	
+	@GetMapping("/users/{id}")
+	public ResponseEntity<ApiResponseDto<RegisterResponseDto>> getUserById(@PathVariable Long id) {
+	    try {
+	        RegisterResponseDto response = adminService.getUserById(id);
+	        return ResponseEntity.ok(ApiResponseDto.success("User fetched successfully", response));
+	    } catch (RuntimeException e) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                .body(ApiResponseDto.failure(e.getMessage()));
+	    }
+	}
 }

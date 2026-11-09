@@ -42,6 +42,9 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    
+    @Column(name = "profile_picture_url", length = 500)
+    private String profilePictureUrl;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -156,5 +159,12 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+    public String getProfilePictureUrl() {
+        return profilePictureUrl;
+    }
+
+    public void setProfilePictureUrl(String profilePictureUrl) {
+        this.profilePictureUrl = profilePictureUrl;
     }
 }
